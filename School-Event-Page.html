@@ -196,7 +196,7 @@ let r=rand()
 let card=document.createElement("div")
 card.className="card "+(e.size||"")
 card.innerHTML=`
-<a href="sport_page.html?sport=${encodeURIComponent(e.title)}">
+<a href="sport_page.html?sport=${encodeURIComponent(e.title)}" style="text-decoration:none;color:inherit;">
 <div>
 <span class="category">${e.cat}</span>
 <div class="title">${e.title}</div>
