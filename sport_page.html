@@ -131,7 +131,7 @@ text-decoration:none;
 <div class="label">Event Info</div>
 <div class="title">Competition Rules</div>
 </div>
-<div class="info">Read the official rules and scoring format for this sport.</div>
+<div class="info" id="rulesText"></div>
 </div>
 
 <div class="card">
@@ -139,7 +139,7 @@ text-decoration:none;
 <div class="label">Schedule</div>
 <div class="title">Match Times</div>
 </div>
-<div class="info">See when this event will take place during the games.</div>
+<div class="info" id="scheduleText"></div>
 </div>
 
 <div class="card">
@@ -147,7 +147,7 @@ text-decoration:none;
 <div class="label">Participants</div>
 <div class="title">Registered Students</div>
 </div>
-<div class="info">View all students competing in this sport.</div>
+<div class="info" id="participantsText"></div>
 </div>
 
 <div class="card">
@@ -155,7 +155,7 @@ text-decoration:none;
 <div class="label">Location</div>
 <div class="title">Event Venue</div>
 </div>
-<div class="info">Find the campus location where this sport is hosted.</div>
+<div class="info" id="venueText"></div>
 </div>
 
 <div class="card">
@@ -163,7 +163,7 @@ text-decoration:none;
 <div class="label">Leaderboard</div>
 <div class="title">Top Performers</div>
 </div>
-<div class="info">Track the best athletes and scores.</div>
+<div class="info" id="leaderboardText"></div>
 </div>
 
 <div class="card">
@@ -179,8 +179,79 @@ text-decoration:none;
 <script>
 const params = new URLSearchParams(window.location.search)
 const sport = params.get("sport")
-if(sport){
+
+const sportsData = {
+
+"Varsity Sprints":{
+rules:"Athletes run 100m on the track. Fastest time wins.",
+schedule:"Monday 10:00 AM",
+venue:"Main Track Field",
+leaderboard:"Coming soon",
+participants:"10 registered athletes"
+},
+
+"Shot Put":{
+rules:"Each athlete throws the shot from the circle. Longest distance wins.",
+schedule:"Tuesday 11:00 AM",
+venue:"Field Arena",
+leaderboard:"Coming soon",
+participants:"6 registered athletes"
+},
+
+"Long Jump":{
+rules:"Athletes jump from the take-off board into sand pit. Longest jump wins.",
+schedule:"Wednesday 9:00 AM",
+venue:"Jump Arena",
+leaderboard:"Coming soon",
+participants:"8 registered athletes"
+},
+
+"3v3 Basketball":{
+rules:"Teams of three compete on half court. First to 21 points wins.",
+schedule:"Thursday 1:00 PM",
+venue:"School Basketball Court",
+leaderboard:"Coming soon",
+participants:"4 teams registered"
+},
+
+"Relay Finals":{
+rules:"Teams of four run 4x100 relay race.",
+schedule:"Friday 12:00 PM",
+venue:"Main Track",
+leaderboard:"Coming soon",
+participants:"5 teams registered"
+},
+
+"Obstacle Course":{
+rules:"Athletes complete climbing, crawling and running obstacles.",
+schedule:"Saturday 9:00 AM",
+venue:"Outdoor Field",
+leaderboard:"Coming soon",
+participants:"12 registered athletes"
+},
+
+"Tug of War":{
+rules:"Two teams pull rope. First team to cross line wins.",
+schedule:"Saturday 2:00 PM",
+venue:"Sports Field",
+leaderboard:"Coming soon",
+participants:"6 teams registered"
+}
+
+}
+
+if(sport && sportsData[sport]){
+
 document.getElementById("sportTitle").textContent = sport
+
+const info = sportsData[sport]
+
+document.getElementById("rulesText").textContent = info.rules
+document.getElementById("scheduleText").textContent = info.schedule
+document.getElementById("venueText").textContent = info.venue
+document.getElementById("leaderboardText").textContent = info.leaderboard
+document.getElementById("participantsText").textContent = info.participants
+
 }
 </script>
 
