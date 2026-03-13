@@ -118,6 +118,24 @@ outline:none;
 border-color:white;
 }
 
+/* Completion message styling */
+  .completion-message {
+    margin-top: 20px;
+    padding: 20px 30px;
+    background: #1f1f1f;
+    border-left: 5px solid #03dac6;
+    border-radius: 10px;
+    font-size: 18px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .completion-message.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 button{
 margin-top:30px;
 background:white;
@@ -200,8 +218,10 @@ transform:translateY(-2px);
 
 </div>
 
-<button type="submit">Register Student</button>
-
+<button type="submit" class="signupBtn">Register Student</button>
+<div class="completion-message" id="completionMsg">
+    ✅ Thank you for signing up! Welcome aboard.
+  </div>
 </form>
 
 </div>
@@ -209,8 +229,17 @@ transform:translateY(-2px);
 
 </body>
     <script>
-       if (confirm("Thank you for signing up! Click OK to continue.")) {
-  // Optional: redirect or take next action
+        const signupBtn = document.getElementById('signupBtn');
+  const completionMsg = document.getElementById('completionMsg');
+
+  signupBtn.addEventListener('click', () => {
+    // Show the completion message
+    completionMsg.classList.add('show');
+
+    // Optionally, hide the button after signup
+    signupBtn.disabled = true;
+    signupBtn.textContent = 'Signed Up';
+  });
   window.location.href = "/welcome";
 } 
     </script>
