@@ -37,9 +37,21 @@ max-width:1100px;
 margin:auto;
 }
 
-.logo{
-font-weight:900;
-letter-spacing:-1px
+
+/* Updated Logo Styles */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-container img {
+    height: 60px; /* Adjusted size for the crest */
+    width: auto;
+}
+.logo-container span {
+    font-weight: 900;
+    letter-spacing: -1px;
+    font-size: 1.4rem;
 }
 
 .back{
@@ -130,7 +142,10 @@ transform:translateY(-2px);
 <body>
 
 <nav>
-<div class="logo">O-24 / ATHLETICS</div>
+<div class="logo-container">
+    <img src="1001724963.png" alt="Calvary Crown Academy Logo">
+    <span>ICO-26</span>
+</div>
 <a class="back" href="School-Event-Page.html">← Back</a>
 </nav>
 
@@ -174,9 +189,12 @@ transform:translateY(-2px);
 <div class="input">
 <label>Campus</label>
 <select>
-<option>Main Campus</option>
-<option>North Campus</option>
-<option>South Campus</option>
+<option>Airport Road Campus</option>
+<option>Ekenwhan Road Campus</option>
+<option>Ewah Road Campus</option>
+<option>Ogida Campus</option>
+<option>Ugbowo Campus</option>
+
 </select>
 </div>
 
